@@ -21,6 +21,7 @@
       <parameter key="MakerBundle">Symfony\Bundle\MakerBundle\MakerBundle</parameter>
       <parameter key="NelmioCorsBundle">Nelmio\CorsBundle\NelmioCorsBundle</parameter>
       <parameter key="ApiPlatformBundle">ApiPlatform\Symfony\Bundle\ApiPlatformBundle</parameter>
+      <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
     </parameter>
     <parameter key="kernel.bundles_metadata" type="collection">
       <parameter key="FrameworkBundle" type="collection">
@@ -70,6 +71,10 @@
       <parameter key="ApiPlatformBundle" type="collection">
         <parameter key="path">C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\api-platform\core\src\Symfony\Bundle</parameter>
         <parameter key="namespace">ApiPlatform\Symfony\Bundle</parameter>
+      </parameter>
+      <parameter key="DoctrineFixturesBundle" type="collection">
+        <parameter key="path">C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\doctrine\doctrine-fixtures-bundle</parameter>
+        <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
       </parameter>
     </parameter>
     <parameter key="kernel.charset">UTF-8</parameter>
@@ -502,6 +507,18 @@
     </service>
     <service id="App\Entity" class="App\Entity" abstract="true">
       <tag name="container.excluded" source="in &quot;config/services.yaml&quot;"/>
+    </service>
+    <service id="App\DataFixtures\ActorFixture" class="App\DataFixtures\ActorFixture" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\CategoryFixture" class="App\DataFixtures\CategoryFixture" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
+    </service>
+    <service id="App\DataFixtures\MovieFixture" class="App\DataFixtures\MovieFixture" autowire="true" autoconfigure="true">
+      <tag name="doctrine.fixture.orm"/>
     </service>
     <service id="App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
@@ -2228,6 +2245,7 @@
           <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\symfony\maker-bundle\src/translations</argument>
           <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\nelmio\cors-bundle/translations</argument>
           <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\api-platform\core\src\Symfony\Bundle/translations</argument>
+          <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
         </argument>
         <argument key="cache_vary" type="collection">
           <argument key="scanned_directories" type="collection">
@@ -2247,6 +2265,7 @@
             <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\symfony\maker-bundle\src/translations</argument>
             <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\nelmio\cors-bundle/translations</argument>
             <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\api-platform\core\src\Symfony\Bundle/translations</argument>
+            <argument>C:\Users\antoi\OneDrive\Documents\DEV\Symfony\TD-Api-plateform\vendor\doctrine\doctrine-fixtures-bundle/translations</argument>
           </argument>
         </argument>
       </argument>
@@ -7668,6 +7687,52 @@
       <argument type="service" id="api_platform.metadata.resource.metadata_collection_factory.cached"/>
       <argument type="service" id="api_platform.serializer.context_builder.filter"/>
     </service>
+    <service id="doctrine.fixtures_load_command" class="Doctrine\Bundle\FixturesBundle\Command\LoadDataFixturesDoctrineCommand">
+      <tag name="console.command" command="doctrine:fixtures:load"/>
+      <tag name="container.no_preload"/>
+      <argument type="service" id="doctrine.fixtures.loader"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="collection">
+        <argument key="default" type="service" id="doctrine.fixtures.purger.orm_purger_factory"/>
+      </argument>
+      <call method="setName">
+        <argument>doctrine:fixtures:load</argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.loader" class="Doctrine\Bundle\FixturesBundle\Loader\SymfonyFixturesLoader">
+      <argument type="service" id="service_container"/>
+      <call method="addFixtures">
+        <argument type="collection">
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\ActorFixture"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\AppFixtures"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\CategoryFixture"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+          <argument type="collection">
+            <argument key="fixture" type="service" id="App\DataFixtures\MovieFixture"/>
+            <argument key="groups" type="collection"/>
+          </argument>
+        </argument>
+      </call>
+    </service>
+    <service id="doctrine.fixtures.purger.orm_purger_factory" class="Doctrine\Bundle\FixturesBundle\Purger\ORMPurgerFactory">
+      <tag name="doctrine.fixtures.purger_factory" alias="default"/>
+    </service>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\ActorFixture" class="App\DataFixtures\ActorFixture" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\ActorFixture" class="App\DataFixtures\ActorFixture" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\CategoryFixture" class="App\DataFixtures\CategoryFixture" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\CategoryFixture" class="App\DataFixtures\CategoryFixture" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\MovieFixture" class="App\DataFixtures\MovieFixture" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\DataFixtures\MovieFixture" class="App\DataFixtures\MovieFixture" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\ActorRepository" class="App\Repository\ActorRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\CategoryRepository" class="App\Repository\CategoryRepository" autowire="true" abstract="true"/>
@@ -9739,7 +9804,7 @@
     </service>
     <service id="console.command_loader" class="Symfony\Component\Console\CommandLoader\ContainerCommandLoader" public="true">
       <tag name="container.no_preload"/>
-      <argument type="service" id=".service_locator.yiFXu_x"/>
+      <argument type="service" id=".service_locator.jZmcur5"/>
       <argument type="collection">
         <argument key="about">console.command.about</argument>
         <argument key="assets:install">console.command.assets_install</argument>
@@ -9824,6 +9889,7 @@
         <argument key="api:json-schema:generate">api_platform.json_schema.json_schema_generate_command</argument>
         <argument key="api:openapi:export">api_platform.openapi.command</argument>
         <argument key="debug:api-resource">debug.api_platform.debug_resource.command</argument>
+        <argument key="doctrine:fixtures:load">doctrine.fixtures_load_command</argument>
         <argument key="make:auth">maker.auto_command.make_auth</argument>
         <argument key="make:command">maker.auto_command.make_command</argument>
         <argument key="make:twig-component">maker.auto_command.make_twig_component</argument>
@@ -9854,7 +9920,7 @@
         <argument key="make:state-provider">maker.auto_command.make_state_provider</argument>
       </argument>
     </service>
-    <service id=".service_locator.yiFXu_x" class="Symfony\Component\DependencyInjection\ServiceLocator">
+    <service id=".service_locator.jZmcur5" class="Symfony\Component\DependencyInjection\ServiceLocator">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="console.command.about" type="service_closure" id=".console.command.about.lazy"/>
@@ -9940,6 +10006,7 @@
         <argument key="api_platform.json_schema.json_schema_generate_command" type="service_closure" id="api_platform.json_schema.json_schema_generate_command"/>
         <argument key="api_platform.openapi.command" type="service_closure" id="api_platform.openapi.command"/>
         <argument key="debug.api_platform.debug_resource.command" type="service_closure" id="debug.api_platform.debug_resource.command"/>
+        <argument key="doctrine.fixtures_load_command" type="service_closure" id="doctrine.fixtures_load_command"/>
         <argument key="maker.auto_command.make_auth" type="service_closure" id=".maker.auto_command.make_auth.lazy"/>
         <argument key="maker.auto_command.make_command" type="service_closure" id=".maker.auto_command.make_command.lazy"/>
         <argument key="maker.auto_command.make_twig_component" type="service_closure" id=".maker.auto_command.make_twig_component.lazy"/>
