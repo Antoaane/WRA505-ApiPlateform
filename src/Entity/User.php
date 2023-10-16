@@ -5,10 +5,12 @@ namespace App\Entity;
 use ApiPlatform\Metadata\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
 #[ApiResource]
-class User
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
@@ -63,5 +65,23 @@ class User
         $this->password = $password;
 
         return $this;
+    }
+
+    public function getUserIdentifier(): string
+    {
+        return $this->email;
+    }
+
+    public function getRoles(): array
+    {
+        // Ici, tu peux retourner les rôles associés à l'utilisateur
+        // Par exemple, pour un utilisateur "admin" :
+        return ['ROLE_ADMIN'];
+    }
+
+    public function eraseCredentials()
+    {
+        // Cette méthode est utile pour supprimer les données sensibles
+        // Rien à faire ici dans notre cas
     }
 }
