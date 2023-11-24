@@ -18,6 +18,7 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '6a47392539ca2329373e0d33e1dba053' => __DIR__ . '/..' . '/symfony/polyfill-intl-icu/bootstrap.php',
+        '9b38cf48e83f5d8f60375221cd213eee' => __DIR__ . '/..' . '/phpstan/phpstan/bootstrap.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '92c8763cd6170fce6fcfe7e26b4e8c10' => __DIR__ . '/..' . '/symfony/phpunit-bridge/bootstrap.php',
         'a1105708a18b76903365ca1c4aa61b02' => __DIR__ . '/..' . '/symfony/translation/Resources/functions.php',
@@ -118,6 +119,7 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
             'Psr\\Cache\\' => 10,
             'PhpParser\\' => 10,
             'PHPStan\\PhpDocParser\\' => 21,
+            'PDepend\\' => 8,
         ),
         'N' => 
         array (
@@ -159,6 +161,11 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
             'Doctrine\\Bundle\\FixturesBundle\\' => 31,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
             'DeepCopy\\' => 9,
+        ),
+        'C' => 
+        array (
+            'Composer\\XdebugHandler\\' => 23,
+            'Composer\\Pcre\\' => 14,
         ),
         'A' => 
         array (
@@ -491,6 +498,10 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
         array (
             0 => __DIR__ . '/..' . '/phpstan/phpdoc-parser/src',
         ),
+        'PDepend\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pdepend/pdepend/src/main/php/PDepend',
+        ),
         'Nelmio\\CorsBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/nelmio/cors-bundle',
@@ -596,6 +607,14 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
         array (
             0 => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy',
         ),
+        'Composer\\XdebugHandler\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/xdebug-handler/src',
+        ),
+        'Composer\\Pcre\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/pcre/src',
+        ),
         'App\\Tests\\' => 
         array (
             0 => __DIR__ . '/../..' . '/tests',
@@ -607,6 +626,16 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
         'ApiPlatform\\' => 
         array (
             0 => __DIR__ . '/..' . '/api-platform/core/src',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'PHPMD\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/phpmd/phpmd/src/main/php',
+            ),
         ),
     );
 
@@ -1263,6 +1292,7 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInit330210da9be4065f94e2363f302c072c::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInit330210da9be4065f94e2363f302c072c::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit330210da9be4065f94e2363f302c072c::$prefixesPsr0;
             $loader->classMap = ComposerStaticInit330210da9be4065f94e2363f302c072c::$classMap;
 
         }, null, ClassLoader::class);

@@ -13,19 +13,19 @@ class MovieFixture extends Fixture implements DependentFixtureInterface
     {
         foreach (range(1, 10) as $i) {
             $movie = new Movie();
-            $movie->setTitle('film'.$i);
+            $movie->setTitle('film' . $i);
             $movie->setReleaseDate(new \DateTime());
             $movie->setDuration(rand(80, 180));
-            $movie->setDescription('descritpion'.$i);
-            $movie->setCategory($this->getReference('category_'.rand(1,5)));
-            $movie->addActor($this->getReference('actor_'.rand(1,9)));
-            $this->addReference('movie_'.$i, $movie);
-            foreach (range(1, rand(2,6)) as $j) {
+            $movie->setDescription('descritpion' . $i);
+            $movie->setCategory($this->getReference('category_' . rand(1, 5)));
+            $movie->addActor($this->getReference('actor_' . rand(1, 9)));
+            $this->addReference('movie_' . $i, $movie);
+            foreach (range(1, rand(2, 6)) as $j) {
                 $movie->addActor($this->getReference('actor_' . rand(1, 10)));
             }
             $manager->persist($movie);
         }
-        
+
         $manager->flush();
     }
 
