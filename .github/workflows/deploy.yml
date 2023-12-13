@@ -28,3 +28,4 @@ jobs:
           composer install
           composer update
           php bin/console c:c
+          php bin/console d:d:c
