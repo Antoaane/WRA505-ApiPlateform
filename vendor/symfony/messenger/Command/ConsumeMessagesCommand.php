@@ -258,7 +258,7 @@ EOF
 
     public function getSubscribedSignals(): array
     {
-        return $this->signals ?? [\SIGTERM, \SIGINT];
+        return $this->signals ?? (\defined('SIGTERM') ? [\SIGTERM, \SIGINT] : []);
     }
 
     public function handleSignal(int $signal, int|false $previousExitCode = 0): int|false
@@ -271,7 +271,7 @@ EOF
 
         $this->worker->stop();
 
-        return 0;
+        return false;
     }
 
     private function convertToBytes(string $memoryLimit): int
