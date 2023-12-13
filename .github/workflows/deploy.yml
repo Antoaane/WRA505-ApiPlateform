@@ -26,4 +26,5 @@ jobs:
           git checkout develop
           git pull
           composer install
+          composer update
           php bin/console c:c
