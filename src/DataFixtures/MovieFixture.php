@@ -11,7 +11,7 @@ class MovieFixture extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        foreach (range(1, 10) as $i) {
+        foreach (range(1, 100) as $i) {
             $movie = new Movie();
             $movie->setTitle('film' . $i);
             $movie->setReleaseDate(new \DateTime());

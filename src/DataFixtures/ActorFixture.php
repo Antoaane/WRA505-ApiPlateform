@@ -11,10 +11,10 @@ class ActorFixture extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        foreach (range(1, 10) as $i) {
+        foreach (range(1, 50) as $i) {
             $actor = new Actor();
-            $actor->setLastName('Doe'. $i);
-            $actor->setFirstname('Jhon'. $i);
+            $actor->setLastName('Doe' . $i);
+            $actor->setFirstname('Jhon' . $i);
             // define nationality
             $actor->setNationalite($this->getReference('nationalite_' . rand(1, 5)));
             $manager->persist($actor);

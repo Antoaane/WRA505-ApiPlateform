@@ -19,7 +19,7 @@ class UserFixture extends Fixture
     // Create 10 users with hashed password
     public function load(ObjectManager $manager): void
     {
-        foreach (range(1, 10) as $i) {
+        foreach (range(1, 5) as $i) {
             $user = new User();
             $user->setEmail('user' . $i . '@example.com');
             $user->setPassword($this->passwordHasher->hashPassword(
