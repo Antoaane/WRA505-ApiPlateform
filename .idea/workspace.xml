@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ab61cb41-770e-4eaa-9bf7-be44c4419236" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.env" beforeDir="false" afterPath="$PROJECT_DIR$/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/WRA505-TD-Revision.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/WRA505-TD-Revision.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/migrations/Version20230928092942.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFixtures/NationaliteFixture.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/NationaliteFixture.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -191,7 +196,7 @@
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;feature/JWT&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;develop&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/antoi/OneDrive/Documents/DEV/Symfony/WRA505-ApiPlateform&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -241,6 +246,16 @@
       <workItem from="1702451182146" duration="3825000" />
       <workItem from="1702464092352" duration="310000" />
       <workItem from="1702477238839" duration="2061000" />
+      <workItem from="1702482051542" duration="173000" />
+      <workItem from="1702482455171" duration="715000" />
+      <workItem from="1705937449792" duration="5000" />
+      <workItem from="1706015551088" duration="256000" />
+      <workItem from="1706015868143" duration="296000" />
+      <workItem from="1706017096966" duration="933000" />
+      <workItem from="1706081329625" duration="1355000" />
+      <workItem from="1706083655376" duration="342000" />
+      <workItem from="1706084012624" duration="1986000" />
+      <workItem from="1706102532628" duration="3441000" />
     </task>
     <servers />
   </component>
