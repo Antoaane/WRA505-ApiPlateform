@@ -11,7 +11,7 @@ class ActorFixture extends Fixture implements DependentFixtureInterface
 {
     public function load(ObjectManager $manager): void
     {
-        foreach (range(1, 50) as $i) {
+        foreach (range(1, 30) as $i) {
             $actor = new Actor();
             $actor->setLastName('Doe' . $i);
             $actor->setFirstname('Jhon' . $i);
