@@ -3,7 +3,7 @@
         'name' => '__root__',
         'pretty_version' => 'dev-develop',
         'version' => 'dev-develop',
-        'reference' => 'bd7d30c0386114aed53c890c145708eed03aa3af',
+        'reference' => 'e5960d4db72810e507ba0a48483c5c46ab910fb6',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         '__root__' => array(
             'pretty_version' => 'dev-develop',
             'version' => 'dev-develop',
-            'reference' => 'bd7d30c0386114aed53c890c145708eed03aa3af',
+            'reference' => 'e5960d4db72810e507ba0a48483c5c46ab910fb6',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
@@ -83,9 +83,9 @@
             'dev_requirement' => true,
         ),
         'doctrine/dbal' => array(
-            'pretty_version' => '3.8.2',
-            'version' => '3.8.2.0',
-            'reference' => 'a19a1d05ca211f41089dffcc387733a6875196cb',
+            'pretty_version' => '3.8.3',
+            'version' => '3.8.3.0',
+            'reference' => 'db922ba9436b7b18a23d1653a0b41ff2369ca41c',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/dbal',
             'aliases' => array(),
@@ -173,9 +173,9 @@
             'dev_requirement' => false,
         ),
         'doctrine/orm' => array(
-            'pretty_version' => '2.18.2',
-            'version' => '2.18.2.0',
-            'reference' => '52a6a21387380b09419a66a7ec1c66f6cab69b20',
+            'pretty_version' => '2.19.0',
+            'version' => '2.19.0.0',
+            'reference' => 'a809a71aa6a233a6c82e68ebaaf8954adc4998dc',
             'type' => 'library',
             'install_path' => __DIR__ . '/../doctrine/orm',
             'aliases' => array(),
@@ -529,8 +529,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '3.0.0',
-                1 => '1.0|2.0|3.0',
+                0 => '1.0|2.0|3.0',
+                1 => '3.0.0',
             ),
         ),
         'psr/simple-cache-implementation' => array(

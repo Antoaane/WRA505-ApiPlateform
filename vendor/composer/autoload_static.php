@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit330210da9be4065f94e2363f302c072c
+class ComposerStaticInit64719060cd93fcec54803ecfba6cb6d5
 {
     public static $files = array (
         '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
@@ -179,8 +179,8 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
         'phpDocumentor\\Reflection\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpdocumentor/reflection-common/src',
-            1 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
-            2 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            1 => __DIR__ . '/..' . '/phpdocumentor/type-resolver/src',
+            2 => __DIR__ . '/..' . '/phpdocumentor/reflection-docblock/src',
         ),
         'Webmozart\\Assert\\' => 
         array (
@@ -588,8 +588,8 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
         ),
         'Doctrine\\Common\\' => 
         array (
-            0 => __DIR__ . '/..' . '/doctrine/common/src',
-            1 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+            0 => __DIR__ . '/..' . '/doctrine/event-manager/src',
+            1 => __DIR__ . '/..' . '/doctrine/common/src',
         ),
         'Doctrine\\Bundle\\MigrationsBundle\\' => 
         array (
@@ -1292,10 +1292,10 @@ class ComposerStaticInit330210da9be4065f94e2363f302c072c
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit330210da9be4065f94e2363f302c072c::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit330210da9be4065f94e2363f302c072c::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInit330210da9be4065f94e2363f302c072c::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInit330210da9be4065f94e2363f302c072c::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit64719060cd93fcec54803ecfba6cb6d5::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit64719060cd93fcec54803ecfba6cb6d5::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit64719060cd93fcec54803ecfba6cb6d5::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit64719060cd93fcec54803ecfba6cb6d5::$classMap;
 
         }, null, ClassLoader::class);
     }
